@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>창업비용 계획서 작성</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            margin: 20px;
+            background-color: #fff9e5;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d4a017;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px; /* 폰트 크기 */
+            font-weight: bold; /* 굵게 */
+            line-height: 1.3; /* 줄 간격 조정 */
+        }
+
+        /* 줄바꿈된 텍스트 스타일 */
+        p span {
+            font-size: 16px; /* 더 작은 폰트 크기 */
+            font-weight: normal; /* 기본 굵기 */
+            color: gray;    /* 다른 색상 */
+            margin-top: 2px; /* 위쪽 간격 */
+            margin-bottom: 2px; /* 아래쪽 간격 */
+            margin-left: 25px; /* 왼쪽 여백 */
+        }
+
+        .budget-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+
+        .budget-container span {
+            margin: 0 20px;
+        }
+
+        .remaining-budget {
+            font-weight: bold;
+            color: #ff0000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2px; /* 위쪽 간격 */
+            margin-bottom: 5px; /* 아래쪽 간격 */
+            background-color: #ffffff;
+        }
+
+        th {
+            background-color: #ffc107;
+            color: #333;
+            padding: 7px;
+        }
+
+        td {
+            border: 1px solid #ffc107;
+            padding: 7px;
+            text-align: left;
+        }
+
+        /* 금액 데이터를 오른쪽 정렬 */
+        .align-right {
+            text-align: right;
+        }
+
+        .center {
+        text-align: center; /* 가로 중앙 정렬 */
+        }
+
+        input, select {
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #ffc107;
+            border-radius: 4px;
+        }
+
+        .add-button {
+            background-color: #ffc107;
+            color: rgb(0, 0, 0);
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 3px; /* 위쪽 간격 */
+        }
+
+        .add-button:hover {
+            background-color: #e0a800;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .chart-container, .preview-container {
+            width: 48%;
+        }
+
+        /* 태블릿 화면 (768px ~ 1024px) */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            p {
+                font-size: 16px; /* 폰트 크기 줄이기 */
+                line-height: 1.4;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+
+        /* 모바일 화면 (768px 이하) */
+        @media (max-width: 768px) {
+            p {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>창업비용 계획서</h1>
+
+    <!-- 항목 설명 표 -->
+    <div>
+        <h2>1. 창업비용 참고</h2>
+        <p> (1) 사업장 확보 : 세부 항목은 '원하는 평수' 입력, 수량은 '1'로 고정 <br>
+             <span>* 비용 계산 : 원하는 평수×평당 비용</span>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>평수(㎡)</th>
+                    <th>평당 비용</th>   
+                    <th>총 공사 비용</th>
+                    <th>추천 업종</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center">20평 이하</td>
+                    <td class="align-right">30~50만원</td>
+                    <td class="align-right">600~1,000만원</td>
+                    <td>소형 카페, 테이크아웃 전문점, 1인 사무실, 소형 매장 등</td>
+                    <td>좁은 공간 활용한 고효율 창업</td>
+                </tr>
+                <tr>
+                    <td class="center">20~40평</td>
+                    <td class="align-right">40~60만원</td>
+                    <td class="align-right">800~2,400만원</td>
+                    <td>중형 카페, 음식점(한식, 분식), 소규모 학원, 개인 미용실, 네일샵 등</td>
+                    <td>대중적인 소비층 대상 업종 적합</td>
+                </tr>
+                <tr>
+                    <td class="center">40~60평</td>
+                    <td class="align-right">50~80만원</td>
+                    <td class="align-right">2,000~4,800만원</td>
+                    <td>레스토랑, 피트니스센터, 중형 학원, 실내 골프 연습장 등</td>
+                    <td>고정 고객 확보가능한 업종 적합</td>
+                </tr>
+                <tr>
+                    <td class="center">60~80평</td>
+                    <td class="align-right">60~90만원</td>
+                    <td class="align-right">3,600~7,200만원</td>
+                    <td>키즈카페, 요가 스튜디오, 중형 체육관, PC방, 서점 등</td>
+                    <td>넓은 공간과 특수 조명 또는 전기 설비 필요</td>
+                </tr>
+                <tr>
+                    <td class="center">80평 이상</td>
+                    <td class="align-right">80~100만원</td>
+                    <td class="align-right">6,400~1억원 이상</td>
+                    <td>대형 음식점, 게스트 하우스, 스터디카페, 공용오피스, 창고 임대 등</td>
+                    <td>넓은 공간과 대규모 고객 수용 적합</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr style="border: none; border-top: 2px solid #252211; margin: 20px 0;">
+        <p> (2) 인력 고용 : 3개월 유지 <br>
+            <span>* 월급 계산 : 시급×8시간×25일</span>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>항목</th>
+                    <th>비용</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center">채용 사이트 공고</td>
+                    <td class="align-right">50,000원</td>
+                    <td>1회 게시</td>
+                </tr>
+                <tr>
+                    <td class="center">인건비</td>
+                    <td class="align-right">2,096,270원</td>
+                    <td>2025년 최저시급 : 10,030원</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr style="border: none; border-top: 2px solid #252211; margin: 20px 0;">
+        <p> (3) 마케팅 : 3개월 유지 <br>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>항목</th>
+                    <th>비용</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center" rowspan="3">오프라인</td>
+                    <td>SNS 광고</td>
+                    <td class="align-right">100,000원</td>
+                    <td>인스타그램, 페이스북</td>
+                </tr>
+                <tr>
+                    <td>검색 광고</td>
+                    <td class="align-right">300,000원</td>
+                    <td>구글, 네이버</td>
+                </tr>
+                <tr>
+                    <td>블로그 체험단</td>
+                    <td class="align-right">50,000원</td>
+                    <td>1건당</td>
+                </tr>
+                <tr>
+                    <td class="center" rowspan="3">온라인</td>
+                    <td>전단지 제작 및 배포</td>
+                    <td class="align-right">150,000원</td>
+                    <td>1,000부당</td>
+                </tr>
+                <tr>
+                    <td>오프닝 이벤트</td>
+                    <td class="align-right">500,000원</td>
+                    <td>상품 및 할인행사</td>
+                </tr>
+                <tr>
+                    <td>로드 광고</td>
+                    <td class="align-right">15,000원</td>
+                    <td>현수막, 배너</td>
+                </tr>
+            </tbody>
+        </table>
+        <p> (4) 시설 장비 구매 : 창업에 필요한 장비, 가구, 집기 등 가격 조사 후 직접 입력 <br></p>
+        <p> (5) 유지비 : (1)~(4) 항목을 제외한 나머지 비용 입력 <br>
+            <span>* 월세, 공과금, 소모품, 유지보수 및 업종에 따른 재료비 포함</span><br></p>
+        <hr style="border: none; border-top: 2px solid #252211; margin: 20px 0;">
+
+    </div> <br>
+
+    <!-- 표 형식 입력 -->
+    <div>
+        <h2>2. 창업비용 계획서</h2>
+        <table id="expense-table">
+            <thead>
+                <tr>
+                    <th>항목</th>
+                    <th>세부 항목</th>
+                    <th>비용 (원)</th>
+                    <th>수량</th>
+                    <th>합계 (원)</th>
+                    <th>작업</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select class="category-select">
+                            <option value="사업장 확보">사업장 확보</option>
+                            <option value="인력 고용">인력 고용</option>
+                            <option value="마케팅">마케팅</option>
+                            <option value="시설 장비 구매">시설 장비 구매</option>
+                            <option value="유지비">유지비</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="detail-input" placeholder="세부 항목 입력"></td>
+                    <td><input type="number" class="cost-input" placeholder="비용 입력"></td>
+                    <td><input type="number" class="quantity-input" placeholder="수량 입력"></td>
+                    <td class="total-cell">0 원</td>
+                    <td><button onclick="removeRow(this)">삭제</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="add-button" onclick="addRow()"><b>항목 추가</b></button>
+    </div>
+
+    <!-- 초기 자본 및 남은 금액 -->
+    <div class="budget-container">
+        <span>초기 자본: <span id="initial-budget"><b>100,000,000</span> 원</b></span>
+        <span>남은 금액: <span id="remaining-budget" class="remaining-budget"></span></span>
+    </div> <br>
+
+    <!-- 미리보기 및 차트 -->
+    <div class="container">
+        <div class="preview-container">
+            <h2>3. 결과</h2>
+            <table id="preview-table">
+                <thead>
+                    <tr>
+                        <th>항목</th>
+                        <th>세부 항목</th>
+                        <th>비용 (원)</th>
+                        <th>수량</th>
+                        <th>합계 (원)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="text-align: right; font-weight: bold;">총 합계:</td>
+                        <td id="total-preview-cost">0</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="chart-container">
+            <h2>4. 차트</h2>
+            <canvas id="expenseChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let remainingBudget = 100000000;
+        const data = {
+            "사업장 확보": 0,
+            "인력 고용": 0,
+            "마케팅": 0,
+            "시설 장비 구매": 0,
+            "유지비": 0
+        };
+        let chartInstance;
+
+        function addRow() {
+            const table = document.getElementById('expense-table').querySelector('tbody');
+            const newRow = document.createElement('tr');
+
+            newRow.innerHTML = `
+                <td>
+                    <select class="category-select">
+                        <option value="사업장 확보">사업장 확보</option>
+                        <option value="인력 고용">인력 고용</option>
+                        <option value="마케팅">마케팅</option>
+                        <option value="시설 장비 구매">시설 장비 구매</option>
+                        <option value="유지비">유지비</option>
+                    </select>
+                </td>
+                <td><input type="text" class="detail-input" placeholder="세부 항목 입력"></td>
+                <td><input type="number" class="cost-input" placeholder="비용 입력"></td>
+                <td><input type="number" class="quantity-input" placeholder="수량 입력"></td>
+                <td class="total-cell">0 원</td>
+                <td><button onclick="removeRow(this)">삭제</button></td>
+            `;
+            table.appendChild(newRow);
+            addInputListeners(newRow);
+        }
+
+        function removeRow(button) {
+            const row = button.parentElement.parentElement;
+            row.remove();
+            updateData();
+        }
+
+        function addInputListeners(row) {
+            const inputs = row.querySelectorAll('.cost-input, .quantity-input, .category-select');
+            inputs.forEach(input => input.addEventListener('input', updateData));
+        }
+
+        function updateData() {
+            const rows = document.querySelectorAll('#expense-table tbody tr');
+            const previewTableBody = document.querySelector('#preview-table tbody');
+            let totalExpense = 0;
+
+            // 초기화
+            for (let key in data) data[key] = 0;
+            previewTableBody.innerHTML = ''; // 미리보기 초기화
+
+            rows.forEach(row => {
+                const category = row.querySelector('.category-select').value;
+                const detail = row.querySelector('.detail-input').value || '-';
+                const cost = parseInt(row.querySelector('.cost-input').value) || 0;
+                const quantity = parseInt(row.querySelector('.quantity-input').value) || 0;
+                const total = cost * quantity;
+
+                // 데이터 업데이트
+                data[category] += total;
+                totalExpense += total;
+
+                // 미리보기 업데이트
+                const previewRow = document.createElement('tr');
+                previewRow.innerHTML = `
+                    <td>${category}</td>
+                    <td>${detail}</td>
+                    <td class="align-right">${cost.toLocaleString()} 원</td>
+                    <td>${quantity}</td>
+                    <td class="align-right">${total.toLocaleString()} 원</td>
+                `;
+                previewTableBody.appendChild(previewRow);
+
+            // 현재 행의 합계 업데이트
+            const totalCell = row.querySelector('.total-cell');
+            totalCell.textContent = `${total.toLocaleString()} 원`;
+
+            });
+
+            // 남은 금액 및 총합계 업데이트
+            remainingBudget = 100000000 - totalExpense;
+            document.getElementById('remaining-budget').textContent = `${remainingBudget.toLocaleString()} 원`;
+            document.getElementById('total-preview-cost').textContent = `${totalExpense.toLocaleString()} 원`;
+
+            drawChart();
+        }
+
+        function drawChart() {
+            const ctx = document.getElementById('expenseChart').getContext('2d');
+            const labels = Object.keys(data);
+            const values = Object.values(data);
+
+            if (chartInstance) chartInstance.destroy();
+
+            chartInstance = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF']
+                    }]
+                }
+            });
+        }
+
+        document.querySelectorAll('#expense-table tbody tr').forEach(addInputListeners);
+    </script>
+</body>
+</html>
