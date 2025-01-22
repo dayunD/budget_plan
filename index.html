@@ -4,138 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>창업비용 계획서 작성</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
-
+    <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+        
         body {
             font-family: 'Nanum Gothic', sans-serif;
-            margin: 20px;
-            background-color: #fff9e5;
+            margin: 0;
+            background-color: #f9f9f9;
             color: #333;
         }
-
-        h1 {
+        
+        header {
+            background-color: #ffc107;
+            color: #333;
+            padding: 20px;
             text-align: center;
-            color: #d4a017;
+            font-size: 1.5em;
+            font-weight: bold;
         }
-
+        
+        main {
+            padding: 20px;
+        }
+        
         h2 {
             margin-top: 20px;
+            color: #d4a017;
         }
-
-        p {
-            font-size: 18px; /* 폰트 크기 */
-            font-weight: bold; /* 굵게 */
-            line-height: 1.3; /* 줄 간격 조정 */
-        }
-
-        /* 줄바꿈된 텍스트 스타일 */
-        p span {
-            font-size: 16px; /* 더 작은 폰트 크기 */
-            font-weight: normal; /* 기본 굵기 */
-            color: gray;    /* 다른 색상 */
-            margin-top: 2px; /* 위쪽 간격 */
-            margin-bottom: 2px; /* 아래쪽 간격 */
-            margin-left: 25px; /* 왼쪽 여백 */
-        }
-
-        .budget-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-            font-size: 1.2em;
-        }
-
-        .budget-container span {
-            margin: 0 20px;
-        }
-
-        .remaining-budget {
-            font-weight: bold;
-            color: #ff0000;
-        }
-
+        
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 2px; /* 위쪽 간격 */
-            margin-bottom: 5px; /* 아래쪽 간격 */
+            margin-top: 20px;
             background-color: #ffffff;
         }
-
+        
         th {
-            background-color: #ffc107;
+            background-color: #ffd54f;
             color: #333;
-            padding: 7px;
+            padding: 10px;
+            text-align: center;
         }
-
+        
         td {
-            border: 1px solid #ffc107;
-            padding: 7px;
+            border: 1px solid #ffd54f;
+            padding: 10px;
             text-align: left;
         }
-
-        /* 금액 데이터를 오른쪽 정렬 */
+        
         .align-right {
             text-align: right;
         }
-
+        
         .center {
-        text-align: center; /* 가로 중앙 정렬 */
+            text-align: center;
         }
-
+        
         input, select {
-            width: 90%;
+            width: 95%;
             padding: 8px;
-            border: 1px solid #ffc107;
+            margin: 5px 0;
+            border: 1px solid #ddd;
             border-radius: 4px;
+            font-size: 1em;
         }
-
+        
         .add-button {
             background-color: #ffc107;
-            color: rgb(0, 0, 0);
-            padding: 8px 16px;
+            color: #333;
+            padding: 10px 20px;
             border: none;
-            cursor: pointer;
             border-radius: 4px;
-            margin-top: 3px; /* 위쪽 간격 */
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
         }
-
+        
         .add-button:hover {
             background-color: #e0a800;
         }
-
-        .container {
+        
+        .budget-container {
+            margin: 20px 0;
+            font-size: 1.2em;
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
-
-        .chart-container, .preview-container {
-            width: 48%;
+        
+        .budget-container span {
+            margin: 10px 0;
+            font-weight: bold;
         }
-
-        /* 태블릿 화면 (768px ~ 1024px) */
-        @media (min-width: 768px) and (max-width: 1024px) {
-            p {
-                font-size: 16px; /* 폰트 크기 줄이기 */
-                line-height: 1.4;
-            }
-
-            .container {
-                padding: 10px;
-            }
+        
+        .remaining-budget {
+            color: #ff0000;
         }
-
-        /* 모바일 화면 (768px 이하) */
+        
+        .chart-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
         @media (max-width: 768px) {
-            p {
-                font-size: 14px;
+            header {
+                font-size: 1.2em;
+                padding: 15px;
             }
-
-            .container {
-                padding: 5px;
+        
+            .add-button {
+                font-size: 0.9em;
+            }
+        
+            input, select {
+                font-size: 0.9em;
+                padding: 6px;
+            }
+        
+            .budget-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        
+            .budget-container span {
+                width: 100%;
             }
         }
+
     </style>
 </head>
 <body>
