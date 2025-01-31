@@ -14,10 +14,17 @@
             color: #333;
         }
         
+        .banner {
+            width: 100%; /* 이미지가 부모 요소에 맞게 자동 조정됨 */
+            height: auto; /* 비율 유지하면서 크기 조정 */
+            display: block;
+            margin: 0 auto; /* 가운데 정렬 */
+        }
+
         .form-container {
-            background-color: #fff9e5;
+            background-color: #fcfcfced;
             padding: 20px;
-            border: 1px solid #ffc107;
+            border: 3px solid #ffc107;
             border-radius: 8px;
             margin-bottom: 20px;
         }
@@ -181,6 +188,9 @@
 
         /* 모바일 화면 (768px 이하) */
         @media (max-width: 768px) {
+            .banner {
+                max-width: 90%; /* 모바일에서는 화면 크기에 맞게 조정 */
+            }
             p {
                 font-size: 14px;
             }
@@ -192,7 +202,8 @@
     </style>
 </head>
 <body>
-    <h1>창업비용 계획서</h1>
+    <!-- JPG 배너 이미지 -->
+    <img src="image.jpg".jpg" alt="창업계획서 배너" class="banner">
 
     <!-- 항목 설명 표 -->
     <div class="form-container">
@@ -206,6 +217,7 @@
                     <th>평수(㎡)</th>
                     <th>평당 비용</th>   
                     <th>총 공사 비용</th>
+                    <th>월세</th>
                     <th>추천 업종</th>
                     <th>비고</th>
                 </tr>
