@@ -219,11 +219,11 @@
 </head>
 <body>
     <!-- JPG 배너 이미지 -->
-    <img src="image.jpg".jpg" alt="창업계획서 배너" class="banner">
+    <img src="image.jpg".jpg alt="창업계획서 배너" class="banner">
 
     <!-- 항목 설명 표 -->
     <div class="form-container">
-        <h2>1. 창업비용 참고</h2>
+        <h2 style="text-align: center; margin-bottom: 5px;" ><창업비용 항목 및 금액></h2>
         <p> (1) 사업장 확보 <br>
              <span>* 사무실 확보의 세부항목은 '원하는 평수(예: 20평)'와 '월세'로 입력 (수량은 '1'로 고정)</span><br>
              <span>* 평수에 따른 총 공사 비용 계산 : 원하는 평수×평당 비용</span>
@@ -282,7 +282,6 @@
                 </tr>
             </tbody>
         </table>
-        <hr style="border: none; border-top: 2px solid #252211; margin: 20px 0;">
         <p> (2) 인력 고용 : 3개월 유지 <br>
             <span>* 월급 계산 : 시급×8시간×25일</span>
         </p>
@@ -312,7 +311,6 @@
                 </tr>
             </tbody>
         </table>
-        <hr style="border: none; border-top: 2px solid #252211; margin: 20px 0;">
         <p> (3) 마케팅 : 3개월 유지 <br>
         </p>
         <table>
@@ -362,14 +360,12 @@
         <p> (4) 시설 장비 구매 : 창업에 필요한 장비, 가구, 집기 등 가격 조사 후 직접 입력 <br></p>
         <p> (5) 유지비 : (1)~(4) 항목을 제외한 나머지 비용 입력 <br>
             <span>* 공과금, 소모품, 유지보수 및 업종에 따른 재료비 포함</span><br></p>
-        <hr style="border: none; border-top: 2px solid #252211; margin: 20px 0;">
 
     </div> <br>
-
-    <!-- 표 형식 입력 -->
-    <div>
-        <h2>2. 창업비용 계획서</h2>
-        <table id="expense-table">
+    <!-- 2. 창업비용 계획서 (가운데 정렬, 캡처 제외) -->
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h2>창업항목 선택</h2>
+        <table id="expense-table" style="margin: 0 auto;">
             <thead>
                 <tr>
                     <th>항목</th>
@@ -398,47 +394,77 @@
                     <td><button onclick="removeRow(this)">삭제</button></td>
                 </tr>
             </tbody>
-        </table>
+        </table><br>
         <button class="add-button" onclick="addRow()"><b>항목 추가</b></button>
-    </div>
+    </div><br>
 
-    <!-- 초기 자본 및 남은 금액 -->
-    <div class="budget-container">
-        <span>초기 자본: <span id="initial-budget"><b>100,000,000</span> 원</b></span>
-        <span>남은 금액: <span id="remaining-budget" class="remaining-budget"></span></span>
-    </div> <br>
+    <!-- 캡처할 영역 시작 -->
+    <div id="capture-area" style="padding: 20px; background-color: white; border-radius: 10px;">
 
-    <!-- 미리보기 및 차트 -->
-    <div class="container">
-        <div class="preview-container">
-            <h2>3. 결과</h2>
-            <table id="preview-table">
-                <thead>
-                    <tr>
-                        <th>항목</th>
-                        <th>세부 항목</th>
-                        <th>비용 (원)</th>
-                        <th>수량</th>
-                        <th>합계 (원)</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="4" style="text-align: right; font-weight: bold;">총 합계:</td>
-                        <td id="total-preview-cost">0</td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+        <!-- 캡처에 포함될 "창업비용 계획서" 타이틀 -->
+        <h1 style="text-align: center; margin-bottom: 20px;">창업비용 계획서</h1>
 
-        <div class="chart-container">
-            <h2>4. 차트</h2>
-            <canvas id="expenseChart"></canvas>
-        </div>
-    </div>
+        <!-- 기업명 및 학번 입력 (한 줄) -->
+        <table style="width: 100%; margin-bottom: 15px; border-collapse: collapse; text-align: center; table-layout: fixed;">
+            <tr>
+                <th style="background-color: #ffc107; padding: 3px; border: 1px solid #ffc107; width: 20%; font-size: 14px; line-height: 1.1; height: 25px;">
+                    기업명
+                </th>
+                <td style="border: 1px solid #ffc107; padding: 3px; width: 30%; height: 25px;">
+                    <input type="text" id="company-name" placeholder="예: (주)에이블" 
+                        style="width: 95%; height: 20px; padding: 2px; border: none; text-align: center; font-size: 14px;">
+                </td>
+                <th style="background-color: #ffc107; padding: 3px; border: 1px solid #ffc107; width: 20%; font-size: 14px; line-height: 1.1; height: 25px;">
+                    학번 및 이름
+                </th>
+                <td style="border: 1px solid #ffc107; padding: 3px; width: 30%; height: 25px;">
+                    <input type="text" id="student-name" placeholder="예: 300719 송다윤" 
+                        style="width: 95%; height: 20px; padding: 2px; border: none; text-align: center; font-size: 14px;">
+                </td>
+            </tr>
+        </table>
+
+
+        <div class="container" style="display: flex; justify-content: space-between; gap: 20px;">
+
+            <!-- 왼쪽: 결과 -->
+            <div style="width: 60%;">
+                <div class="preview-container">
+                    <h2>창업비용 계획서</h2>
+                    <table id="preview-table">
+                        <thead>
+                            <tr>
+                                <th>항목</th>
+                                <th>세부 항목</th>
+                                <th>비용 (원)</th>
+                                <th>수량</th>
+                                <th>합계 (원)</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" style="text-align: right; font-weight: bold;">총 합계:</td>
+                                <td id="total-preview-cost">0</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 오른쪽: 4. 차트 -->
+            <div class="chart-container" style="width: 35%;">
+                <h2>차트</h2>
+                <canvas id="expenseChart"></canvas>
+            </div>
+
+        </div> <!-- container 끝 -->
+    </div> <!-- capture-area 끝 -->
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
     <script>
         let remainingBudget = 100000000;
         const data = {
@@ -550,6 +576,30 @@
         }
 
         document.querySelectorAll('#expense-table tbody tr').forEach(addInputListeners);
+
+        function saveAsImage() {
+            const captureElement = document.getElementById('capture-area');
+
+            html2canvas(captureElement, {
+                backgroundColor: '#ffffff', // 배경 흰색으로 설정
+                scale: 2, // 이미지 해상도 향상
+                useCORS: true // 외부 이미지 문제 방지
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL("image/png");
+                link.download = "창업비용계획서.png";
+                link.click();
+            });
+        }
+
+
     </script>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="add-button" onclick="saveAsImage()">이미지 저장</button>
+        </div>
+
+
+
 </body>
 </html>
