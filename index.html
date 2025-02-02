@@ -544,13 +544,13 @@
             const rows = document.querySelectorAll('#expense-table tbody tr'); // 입력 테이블의 모든 행 선택
             const previewTableBody = document.querySelector('#preview-table tbody'); // 미리보기 테이블
             let totalExpense = 0; // 총 사용 금액 초기화
-
+        
             // 초기 데이터 리셋
             for (let key in data) {
                 data[key] = 0;
             }
             previewTableBody.innerHTML = ''; // 미리보기 테이블 초기화
-
+        
             // 입력 테이블 데이터를 읽고 계산
             rows.forEach(row => {
                 const category = row.querySelector('.category-select').value; // 항목
@@ -558,11 +558,11 @@
                 const cost = parseInt(row.querySelector('.cost-input').value) || 0; // 비용
                 const quantity = parseInt(row.querySelector('.quantity-input').value) || 0; // 수량
                 const total = cost * quantity; // 합계 계산
-
+        
                 // 데이터 업데이트
                 data[category] += total;
                 totalExpense += total;
-
+        
                 // 미리보기 테이블 업데이트
                 const previewRow = document.createElement('tr');
                 previewRow.innerHTML = `
@@ -573,20 +573,23 @@
                     <td class="align-right">${total.toLocaleString()} 원</td>
                 `;
                 previewTableBody.appendChild(previewRow);
-
+        
                 // 입력 테이블의 현재 행에 합계 업데이트
                 const totalCell = row.querySelector('.total-cell');
                 totalCell.textContent = `${total.toLocaleString()} 원`;
             });
-
-            // 사용한 금액 및 남은 금액 업데이트
+        
+            // ✅ 사용한 금액 및 남은 금액 업데이트
             remainingBudget = 100000000 - totalExpense; // 초기 자본에서 총 사용 금액 차감
             document.getElementById('remaining-budget').textContent = `${remainingBudget.toLocaleString()} 원`;
+        
+            // ✅ **총합계 업데이트 (오류 수정)**
             document.getElementById('total-preview-cost').textContent = `${totalExpense.toLocaleString()} 원`;
-
-            // 차트 업데이트
+        
+            // ✅ 차트 업데이트
             drawChart();
         }
+
 
         function drawChart() {
             const ctx = document.getElementById('expenseChart').getContext('2d');
