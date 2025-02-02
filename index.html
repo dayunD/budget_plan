@@ -224,7 +224,7 @@
 
     <!-- 항목 설명 표 -->
     <div class="form-container">
-        <h2 style="text-align: center; margin-bottom: 5px;" ><창업비용 항목 및 금액></h2>
+        <h2 style="text-align: center; margin-bottom: 5px;" ><창업항목 및 비용></h2>
         <p> (1) 사업장 확보 <br>
              <span>* 사무실 확보의 세부항목은 '원하는 평수(예: 20평)'와 '월세'로 입력 (수량은 '1'로 고정)</span><br>
              <span>* 평수에 따른 총 공사 비용 계산 : 원하는 평수×평당 비용</span>
@@ -471,6 +471,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
     <script>
@@ -567,13 +568,11 @@
             drawChart();
         }
 
-
-
-
         function drawChart() {
             const ctx = document.getElementById('expenseChart').getContext('2d');
             const labels = Object.keys(data);
             const values = Object.values(data);
+            const totalValue = values.reduce((acc, val) => acc + val, 0); // 총 합계 계산
 
             if (chartInstance) chartInstance.destroy();
 
@@ -585,9 +584,42 @@
                         data: values,
                         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF']
                     }]
-                }
+                },
+                options: {
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const percentage = ((value / totalValue) * 100).toFixed(2); // 퍼센트 계산
+                                    return `${label}: ${percentage}% (${value.toLocaleString()} 원)`;
+                                }
+                            }
+                        },
+                        datalabels: {
+                            formatter: (value, context) => {
+                                if (value === 0) {
+                                    return ''; // 값이 0이면 아무 것도 표시하지 않음
+                                }
+                                const percentage = ((value / totalValue) * 100).toFixed(2); // 퍼센트 계산
+                                return `${percentage}%`; // % 값만 표시
+                            },
+                            color: '#fff', // 텍스트 색상
+                            font: {
+                                size: 14, // 폰트 크기
+                                weight: 'bold' // 폰트 굵기
+                            },
+                            anchor: 'end',
+                            align: 'start',
+                            offset: 10
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
             });
         }
+
 
         document.querySelectorAll('#expense-table tbody tr').forEach(addInputListeners);
 
