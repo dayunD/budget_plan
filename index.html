@@ -191,6 +191,19 @@
             width: 80%;
         }
 
+        /* 합계는 오른쪽 정렬 */
+        .total-cell {
+            text-align: right; /* 오른쪽 정렬 */
+        }
+        
+        /* 삭제 버튼은 가운데 정렬 */
+        .center button {
+            display: block;
+            margin: 0 auto; /* 버튼을 가운데 정렬 */
+            text-align: center;
+        }
+
+
         /* 태블릿 화면 (768px ~ 1024px) */
         @media (min-width: 768px) and (max-width: 1024px) {
             p {
@@ -366,36 +379,37 @@
     <!-- 2. 창업비용 계획서 (가운데 정렬, 캡처 제외) -->
     <div style="text-align: center; margin-bottom: 30px;">
         <h2>창업항목 선택</h2>
-        <table id="expense-table" style="margin: 0 auto;">
-            <thead>
-                <tr>
-                    <th>항목</th>
-                    <th>세부 항목</th>
-                    <th>비용 (원)</th>
-                    <th>수량</th>
-                    <th>합계 (원)</th>
-                    <th>작업</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <select class="category-select">
-                            <option value="사업장 확보">사업장 확보</option>
-                            <option value="인력 고용">인력 고용</option>
-                            <option value="마케팅">마케팅</option>
-                            <option value="시설 장비 구매">시설 장비 구매</option>
-                            <option value="유지비">유지비</option>
-                        </select>
-                    </td>
-                    <td><input type="text" class="detail-input" placeholder="세부 항목 입력"></td>
-                    <td><input type="number" class="cost-input" placeholder="비용 입력"></td>
-                    <td><input type="number" class="quantity-input" placeholder="수량 입력"></td>
-                    <td class="total-cell">0 원</td>
-                    <td><button onclick="removeRow(this)">삭제</button></td>
-                </tr>
-            </tbody>
-        </table><br>
+    <table id="expense-table" style="margin: 0 auto;">
+        <thead>
+            <tr>
+                <th>항목</th>
+                <th>세부 항목</th>
+                <th>비용 (원)</th>
+                <th>수량</th>
+                <th>합계 (원)</th>
+                <th>작업</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <select class="category-select">
+                        <option value="사업장 확보">사업장 확보</option>
+                        <option value="인력 고용">인력 고용</option>
+                        <option value="마케팅">마케팅</option>
+                        <option value="시설 장비 구매">시설 장비 구매</option>
+                        <option value="유지비">유지비</option>
+                    </select>
+                </td>
+                <td><input type="text" class="detail-input" placeholder="세부 항목 입력"></td>
+                <td><input type="number" class="cost-input" placeholder="비용 입력"></td>
+                <td><input type="number" class="quantity-input" placeholder="수량 입력"></td>
+                <td class="total-cell align-right">0 원</td> <!-- 합계는 오른쪽 정렬 -->
+                <td class="center"><button onclick="removeRow(this)">삭제</button></td> <!-- 삭제 버튼은 가운데 정렬 -->
+            </tr>
+        </tbody>
+    </table>
+<br>
         <button class="add-button" onclick="addRow()"><b>항목 추가</b></button>
     </div><br>
 
