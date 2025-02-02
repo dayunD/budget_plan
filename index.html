@@ -641,14 +641,19 @@
         }
 
 
-        document.querySelectorAll('#expense-table tbody tr').forEach(addInputListeners);
-
-            // ★ 입력 필드를 한글 모드로 설정하는 코드 추가 ★
-            document.querySelectorAll('input').forEach(input => {
-                input.addEventListener('focus', () => {
-                    input.setAttribute('lang', 'ko');
-                });
+        document.querySelectorAll('input').forEach(input => {
+            input.setAttribute('lang', 'ko'); // 기본 한국어 설정
+        
+            input.addEventListener('focus', () => {
+                input.setAttribute('lang', 'ko'); // 포커스 시 한국어 설정 유지
             });
+        
+            input.addEventListener('keydown', (event) => {
+                if (event.key.length === 1) { // 사용자가 키 입력할 때
+                    input.setAttribute('lang', 'ko'); // 한글 입력 유지
+                }
+            });
+        });
 
         function saveAsImage() {
             const captureElement = document.getElementById('capture-area');
