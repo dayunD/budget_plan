@@ -643,6 +643,13 @@
 
         document.querySelectorAll('#expense-table tbody tr').forEach(addInputListeners);
 
+            // ★ 입력 필드를 한글 모드로 설정하는 코드 추가 ★
+            document.querySelectorAll('input').forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.setAttribute('lang', 'ko');
+                });
+            });
+
         function saveAsImage() {
             const captureElement = document.getElementById('capture-area');
 
