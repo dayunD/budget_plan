@@ -175,11 +175,27 @@
             resize: vertical; /*세로 조절*/
             overflow: auto; /* 스크롤바 활성화 */
         }
+        
+        /* 수량 칸 스타일 */
+        .quantity-input {
+            width: 50%; /* 수량 칸의 너비를 테이블의 10%로 설정 */
+            padding: 5px; /* 내부 여백 */
+            text-align: center; /* 텍스트 가운데 정렬 */
+            border: 1px solid #e4b96f; /* 기존 테두리 스타일 유지 */
+            border-radius: 4px;
+            background-color: #ffffff; /* 배경색 */
+        }
 
+        /* 테이블의 특정 열 너비 조정 */
+        #expense-table th:nth-child(4), /* 테이블 헤더의 수량 칸 */
+        #expense-table td:nth-child(4) { /* 테이블 본문의 수량 칸 */
+            width: 15%; /* 너비를 전체 테이블의 10%로 설정 */
+            text-align: center; /* 텍스트 가운데 정렬 */
+        }
 
         /* ===== 버튼 스타일 ===== */
         button {
-            padding: 5px 10px; /* 버튼 내부 여백 */
+            padding: 8px 12px; /* 버튼 내부 여백 */
             background-color: #ff6347; /* 따뜻한 딥 오렌지 */
             color: #ffffff;
             border: none;
@@ -187,7 +203,9 @@
             cursor: pointer;
             font-size: 14px;
             transition: background-color 0.3s ease, transform 0.2s ease;
-
+            width: auto; /* 버튼 크기를 내용에 맞춤 */
+            min-width: 50px; /* 최소 버튼 너비 설정 */
+            text-align: center;
         }
 
         button:hover {
@@ -377,7 +395,6 @@
     <div class="form-container1">
     <!-- JPG 배너 이미지 -->
     <img src="image.jpg".jpg alt="창업계획서 배너" class="banner">
-    <br>
         <div class="popup-section">
             <div class="popup-title">5가지 창업 필수 항목을 확인하고, 필요한 비용을 참고하여 창업비용 계획서를 작성해 보세요! 💡 </div>
             <div class="popup-buttons">
@@ -403,7 +420,18 @@
 
     <!-- 항목 선택 버튼 -->
     <div style="text-align: center; margin-bottom: 30px;"></div>
-        <h2>창업비용 계획서 작성</h2><br><br>
+        <h2>창업비용 계획서 작성</h2>
+        <div style="text-align: left; margin-top: 10px; font-size: 16px; color: #555555;">
+            ※ 항목을 선택한 후, 세부 항목, 비용, 수량을 입력하면 자동으로 합계와 차트가 업데이트됩니다 <br>
+            ※ 창업 후 <strong> 3개월 동안 필요한 비용</strong>을 계획해서 작성해 보세요😊
+        </div><br>
+
+            <!-- 초기 자본 및 남은 금액 -->
+    <div class="budget-container">
+        <span>💰 초기 자본: <b id="initial-budget">100,000,000</b> 원</span>
+        <span>💸 남은 금액: <b id="remaining-budget" class="remaining-budget">100,000,000</b> </span>
+    </div>
+
     <table id="expense-table" style="margin: 0 auto;">
         <thead>
             <tr>
@@ -428,7 +456,7 @@
                 </td>
                 <td><input type="text" class="detail-input" placeholder="세부 항목 입력"></td>
                 <td><input type="number" class="cost-input" placeholder="비용 입력"></td>
-                <td><input type="number" class="quantity-input" placeholder="수량 입력"></td>
+                <td><input type="number" class="quantity-input" placeholder="숫자"></td>
                 <td class="total-cell align-right">0 원</td> <!-- 합계는 오른쪽 정렬 -->
                 <td class="center"><button onclick="removeRow(this)">삭제</button></td> <!-- 삭제 버튼은 가운데 정렬 -->
             </tr>
@@ -437,13 +465,6 @@
 <br>
         <button class="add-button" onclick="addRow()"><b>항목 추가</b></button>
     <br><br>
-
-    <!-- 초기 자본 및 남은 금액 -->
-    <div class="budget-container">
-        <span>💰 초기 자본: <b id="initial-budget">100,000,000</b> 원</span>
-        <span>💸 남은 금액: <b id="remaining-budget" class="remaining-budget">100,000,000</b> </span>
-    </div>
-
 
     <!-- 캡처할 영역 시작 -->
     <div id="capture-area" style="padding: 20px; border: 2px solid #F8D568; background-color: white; border-radius: 10px;">
@@ -716,13 +737,13 @@
             type: "table",
             headers: ["평수", "총 공사 비용", "월세", "비고"],
             rows: [
-                ["20평(66.12㎡) 이하", "600~1,000만원", "80만원", "좁은 공간 활용한 고효율 창업"],
-                ["20~40평(132.23㎡)", "800~2,400만원", "80~160만원", "대중적인 소비층 대상 업종 적합"],
-                ["40~60평(198.35㎡)", "2,000~4,800만원", "160~240만원", "고정 고객 확보가능한 업종 적합"],
-                ["60~80평(264.46㎡)", "3,600~7,200만원", "240~320만원", "넓은 공간과 특수 조명 또는 전기 설비 필요"],
-                ["80평(264.46㎡) 이상", "6,400~1억원 이상", "320~400만원", "넓은 공간과 대규모 고객 수용 적합"]
+                ["20평(66.12㎡) 이하", "600~1,000만원", "80만원", "작은 공간을 효율적으로 활용하는 창업"],
+                ["20~40평(132.23㎡)", "800~2,400만원", "80~160만원", "대중적인 고객층을 위한 적당한 공간 활용"],
+                ["40~60평(198.35㎡)", "2,000~4,800만원", "160~240만원", "안정적인 공간 구성으로 고객 편의성과 유치"],
+                ["60~80평(264.46㎡)", "3,600~7,200만원", "240~320만원", "넓은 공간을 활용한 다양한 활동과 고객 수용"],
+                ["80평(264.46㎡) 이상", "6,400~1억원 이상", "320~400만원", "대규모 고객 수용과 다목적 활용이 필요한 창업"]
             ],
-            text: "* 사무실 확보의 세부항목은 '원하는 평수(예: 20평)'와 '월세'로 입력 (수량은 '1'로 고정)."
+            text: "* 사무실 확보의 세부항목은 '원하는 평수(예: 20평)'와 '월세'로 입력 (수량은 '1'로 고정)"
         },
         "인력 고용": {
             type: "table",
@@ -745,15 +766,16 @@
                 ["온라인", "오프닝 이벤트", "500,000원", "상품 및 할인행사"],
                 ["온라인", "로드 광고", "15,000원", "현수막, 배너"]
             ],
-            text: "* 창업 초기 홍보 및 고객 유치를 위한 다양한 마케팅 기법 활용"
+            text: "* 창업 초기 홍보 및 고객 유치를 위한 다양한 마케팅 활용"
         },
         "시설 장비 구매": {
             type: "text",
-            text: "창업에 필요한 장비, 가구, 집기 등을 조사하여 직접 입력해야 합니다."
+            text: "창업에 필요한 장비, 가구, 집기 등을 조사하여 직접 입력"
         },
         "유지비": {
             type: "text",
-            text: "공과금, 소모품, 유지보수 및 업종에 따른 재료비가 포함됩니다."
+            text: "공과금, 소모품, 유지보수 및 업종에 따른 재료비 포함"
+            
         }
     };
 
