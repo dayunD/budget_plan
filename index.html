@@ -162,14 +162,18 @@
         .opinion-table td {
             border: 1px solid #e4b96f;
             padding: 10px;
+            text-align: center; /* 텍스트 가운데 정렬 */
+            vertical-align: middle; /* 세로축 중앙 정렬 */
         }
 
         textarea {
-            width: 95%;
+            display: inline-block; /* 테이블 셀 안에서 중앙 정렬 */
+            width: 98%;
             padding: 8px;
             border: 1px solid #e4b96f;
             border-radius: 5px;
-            resize: none; /* 크기 조정 비활성화 */
+            resize: vertical; /*세로 조절*/
+            overflow: auto; /* 스크롤바 활성화 */
         }
 
 
