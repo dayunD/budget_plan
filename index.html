@@ -7,102 +7,277 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
 
+        /* ===== 전체 페이지 스타일 ===== */
         body {
             font-family: 'Nanum Gothic', sans-serif;
             margin: 20px;
-            background-color: #fff9e5;
-            color: #333;
-        }
-        
-        .banner {
-            width: 100%; /* 이미지가 부모 요소에 맞게 자동 조정됨 */
-            height: auto; /* 비율 유지하면서 크기 조정 */
-            display: block;
-            margin: 0 auto 20px; /* 아래쪽 여백 20px 추가 */
+            background-color: #fff6dc; /* 따뜻한 머스터드 옐로우 */
+            color: #000000; /* 고급스러운 다크 브라운 */
+            
         }
 
-        .form-container {
-            background-color: #fcfcfced;
-            padding: 20px;
-            border: 3px solid #ffc107;
+        /* ===== 배너 이미지 ===== */
+        .banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
             border-radius: 8px;
-            margin-bottom: 20px;
         }
-        
-        .form-container h2 {
-            color: #d4a017;
-            margin-bottom: 10px;
+
+        /* ===== 폼 컨테이너 ===== */
+        .form-container1 {
+            background-color: white; /* 흰색 배경 */
+            width: 95%;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* 초과 내용 숨김 */
+            position: relative; /* 위치 지정 */
         }
-        
-        .form-container p {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 10px;
+
+
+        .form-container {
+            background-color: #fff6dc;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 0px;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
         }
-        
-        .form-container p span {
-            font-size: 14px;
-            color: #666;
-        }
-        
+
+
+        /* ===== 표 스타일 ===== */
         .form-container table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
-            background-color: #ffffff;
+            background-color: #FFF6E3;
+            color: #000000; /* 텍스트 색상을 검은색으로 변경 */
         }
-        
         .form-container th {
-            background-color: #ffc107;
-            color: #333;
-            padding: 10px;
+            background-color: #F8D568; /* 머스터드 오렌지 */
+            color: #422a11;
+            padding: 5px;
             text-align: center;
         }
-        
+
         .form-container td {
-            border: 1px solid #ffc107;
-            padding: 8px;
+            border: 1px solid #F8D568;
+            padding: 5px;
+            text-align: center;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            color: #000000; /* 텍스트 색상을 검은색으로 변경 */
+        }
+
+        th {
+            background-color: #F8D568;
+            border: 1px solid #e4b96f;
+            color: #422a11;
+            padding: 7px;
+        }
+
+        td {
+            border: 1px solid #e4b96f;
+            padding: 7px;
             text-align: left;
-        }
-        
-        .form-container .align-right {
-            text-align: right;
-        }
-        
-        .form-container .center {
-            text-align: center;
-        }
-
-
-        h1 {
-            text-align: center;
-            color: #d4a017;
         }
 
         h2 {
-            margin-top: 20px;
+            position: relative;
+            font-size: 20px;
+            font-weight: bold;
+            color: #8e7705;
+            margin: 30px 0 10px;
+            background-color: #fff6dc; /* 배경색 */
+            display: inline; /* 텍스트 길이에 맞춤 */
+            padding: 5px 10px; /* 내부 여백 */
+            border-radius: 5px; /* 모서리 둥글게 */
+            margin-bottom: 10px; /* 아래 여백 */
         }
 
-        p {
-            font-size: 18px; /* 폰트 크기 */
-            font-weight: bold; /* 굵게 */
-            line-height: 1.3; /* 줄 간격 조정 */
+        h3 {
+            font-size: 20px; /* 폰트 크기 */
+            font-weight: bold; /* 폰트 두께 */
+            color: #8e7705; /* 텍스트 색상 */
+            margin-bottom: 10px; /* 제목 아래 간격 줄이기 */
         }
 
-        /* 줄바꿈된 텍스트 스타일 */
-        p span {
-            font-size: 16px; /* 더 작은 폰트 크기 */
-            font-weight: normal; /* 기본 굵기 */
-            color: gray;    /* 다른 색상 */
-            margin-top: 2px; /* 위쪽 간격 */
-            margin-bottom: 2px; /* 아래쪽 간격 */
-            margin-left: 25px; /* 왼쪽 여백 */
+        h3::after {
+            content: '';
+            display: block;
+            width: 150px;
+            height: 3px;
+            background-color: #8e7705;
+            margin-top: 3px;
+            margin-bottom: 10px;
         }
 
-        .budget-container {
+        .bold-right {
+            text-align: right;
+            font-weight: bold; /* 기존 강조 스타일 유지 */
+        }
+
+        .align-right {
+            text-align: right;
+            }
+
+        .center {
+            text-align: center;
+        }
+        /* ===== 입력 필드 ===== */
+        input, select {
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #e4b96f;
+            border-radius: 4px;
+            background-color: #ffffff; /* 연한 베이지 */
+            color: #000000;
+        }
+
+        /* 질문 표 스타일 (이미 정의된 opinion-table 사용) */
+        .opinion-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto; /* 가운데 정렬 */
+            text-align: center;
+            table-layout: fixed;
+        }
+
+        .opinion-table th {
+            background-color: #F8D568;
+            color: #422a11;
+            padding: 10px;
+            border: 1px solid #e4b96f;
+            font-weight: bold;
+        }
+
+        .opinion-table td {
+            border: 1px solid #e4b96f;
+            padding: 10px;
+        }
+
+        textarea {
+            width: 95%;
+            padding: 8px;
+            border: 1px solid #e4b96f;
+            border-radius: 5px;
+            resize: none; /* 크기 조정 비활성화 */
+        }
+
+
+        /* ===== 버튼 스타일 ===== */
+        button {
+            padding: 5px 10px; /* 버튼 내부 여백 */
+            background-color: #ff6347; /* 따뜻한 딥 오렌지 */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+
+        }
+
+        button:hover {
+            background-color: #e04e3f; /* 더 짙은 오렌지 브라운 */
+            transform: scale(1.05);
+        }
+
+        /* ===== 추가 버튼 ===== */
+        .add-button {
+            background-color: #F8D568; /* 골드 오렌지 */
+            color: #5a3e20;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 3px;
+            justify-content: center;
+            
+        }
+
+        .add-button:hover {
+            background-color: #c5a648; /* 진한 머스터드 */
+        }
+
+        /* ===== 팝업 스타일 ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #FFF6E3; /* 연한 크림 오렌지 */
+            padding: 20px;
+            border: 1px solid #F8D568;
+            width: 50%;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* ===== 팝업 버튼 스타일 ===== */
+        .popup-section {
+            border-radius: 8px;
+            padding: 15px;
+            border: 2px solid #F8D568;
+            margin: 10px auto;
+            width: 95%;
+        }
+
+        .popup-title {
+            font-size: 16px;
+            /* font-weight: bold;*/
+            color: #5a3e20;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .popup-buttons {
             display: flex;
             justify-content: center;
-            margin: 20px 0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .popup-btn {
+            background-color: #F8D568;
+            color: #000000;
+            border: none;
+            padding: 7px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold; /* 폰트 굵게 변경 */
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .popup-btn:hover {
+            background-color: #c5a648;
+            transform: scale(1.05);
+            color: #ffffff; /* 텍스트 색상 변경 */
+        }
+
+        /* ===== 예산 컨테이너 ===== */
+        .budget-container {
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
             font-size: 1.2em;
         }
 
@@ -110,280 +285,121 @@
             margin: 0 20px;
         }
 
+        /* ===== 강조 색상 ===== */
         .remaining-budget {
             font-weight: bold;
-            color: #ff0000;
+            color: #D9534F; /* 강조 레드 */
         }
 
-        table {
+        /* 기업명 및 학번 입력 테이블 스타일 */
+        .company-info-table {
             width: 100%;
+            margin-bottom: 15px;
             border-collapse: collapse;
-            margin-top: 2px; /* 위쪽 간격 */
-            margin-bottom: 5px; /* 아래쪽 간격 */
-            background-color: #ffffff;
-        }
-
-        th {
-            background-color: #ffc107;
-            color: #333;
-            padding: 7px;
-        }
-
-        td {
-            border: 1px solid #ffc107;
-            padding: 7px;
-            text-align: left;
-        }
-
-        /* 금액 데이터를 오른쪽 정렬 */
-        .align-right {
-            text-align: right;
-        }
-
-        .center {
-        text-align: center; /* 가로 중앙 정렬 */
-        }
-
-        input, select {
-            width: 90%;
-            padding: 8px;
-            border: 1px solid #ffc107;
-            border-radius: 4px;
-        }
-
-        button {
-            padding: 10px 10px;
-            background-color: #ff6347;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #e04e3f;
-        }
-
-
-        .add-button {
-            background-color: #ffc107;
-            color: rgb(0, 0, 0);
-            padding: 8px 16px;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            margin-top: 3px; /* 위쪽 간격 */
-        }
-
-        .add-button:hover {
-            background-color: #e0a800;
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px; /* 3번과 4번 사이 간격 조절 */
-        }
-
-        .chart-container, .preview-container {
-            width: 80%;
-        }
-
-        /* 합계는 오른쪽 정렬 */
-        .total-cell {
-            text-align: right; /* 오른쪽 정렬 */
-        }
-        
-        /* 삭제 버튼은 가운데 정렬 */
-        .center button {
-            display: block;
-            margin: 0 auto; /* 버튼을 가운데 정렬 */
             text-align: center;
-        }
-        
-        /* "총 합계" 금액의 볼드 처리와 오른쪽 정렬 */
-        .bold-right {
-            text-align: right; /* 오른쪽 정렬 */
-            font-weight: bold; /* 볼드 처리 */
+            table-layout: fixed;
         }
 
-        /* 태블릿 화면 (768px ~ 1024px) */
-        @media (min-width: 768px) and (max-width: 1024px) {
+        /* 테이블 헤더 스타일 */
+        .company-info-table th {
+            background-color: #F8D568; /* 머스터드 컬러 */
+            padding: 3px;
+            border: 1px solid #F8D568;
+            width: 20%;
+            font-size: 16px;
+            line-height: 1.1;
+            height: 25px;
+        }
+
+        /* 테이블 셀 스타일 */
+        .company-info-table td {
+            border: 1px solid #F8D568;
+            padding: 3px;
+            width: 30%;
+            height: 25px;
+        }
+
+        /* 입력 필드 스타일 */
+        .company-info-table input {
+            width: 95%;
+            height: 20px;
+            padding: 2px;
+            border: none;
+            text-align: center;
+            font-size: 14px;
+            background-color: #ffffff; /* 배경 흰색 */
+        }
+
+
+        /* ===== 삭제 버튼 스타일 ===== */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            color: #d9534f;
+            border: none;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            color: #a94442; /* 마우스 올릴 때 텍스트 색상만 유지 */
+            background-color: transparent; /* 배경색 투명 */
+        }
+
+
+
+        /* ===== 반응형 스타일 ===== */
+        @media (max-width: 1024px) {
             p {
-                font-size: 16px; /* 폰트 크기 줄이기 */
-                line-height: 1.4;
-            }
-
-            .container {
-                padding: 10px;
+                font-size: 16px;
             }
         }
 
-        /* 모바일 화면 (768px 이하) */
         @media (max-width: 768px) {
             .banner {
-                max-width: 90%; /* 모바일에서는 화면 크기에 맞게 조정 */
+                max-width: 90%;
             }
             p {
                 font-size: 14px;
             }
-
-            .container {
-                padding: 5px;
-            }
         }
+
+
     </style>
 </head>
 <body>
+    <div class="form-container1">
     <!-- JPG 배너 이미지 -->
     <img src="image.jpg".jpg alt="창업계획서 배너" class="banner">
+    <br>
+        <div class="popup-section">
+            <div class="popup-title">5가지 창업 필수 항목을 확인하고, 필요한 비용을 참고하여 창업비용 계획서를 작성해 보세요! 💡 </div>
+            <div class="popup-buttons">
+                <button class="popup-btn" onclick="showDetails('사업장 확보')">사업장 확보</button>
+                <button class="popup-btn" onclick="showDetails('인력 고용')">인력 고용</button>
+                <button class="popup-btn" onclick="showDetails('마케팅')">마케팅</button>
+                <button class="popup-btn" onclick="showDetails('시설 장비 구매')">시설 장비 구매</button>
+                <button class="popup-btn" onclick="showDetails('유지비')">유지비</button>
+            </div>
+        </div>
+    <!-- 선택한 항목 상세 정보를 표로 출력 -->
+    <div class="form-container" id="details-container" style="display: none; position: relative;">
+        <button class="close-btn" onclick="closeDetails()">&#x2716;</button> <!-- X 아이콘 버튼 -->
+        <h3 id="details-title" style="text-align: left; margin-bottom: 5px;">📋 선택한 항목</h3>
+        <table id="details-table" style="display: none;">
+            <thead>
+                <tr id="table-header"></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <p id="details-text" style="display: none;"></p>
+    </div>
 
-    <!-- 항목 설명 표 -->
-    <div class="form-container">
-        <h2 style="text-align: center; margin-bottom: 5px;" ><창업항목 및 비용></h2>
-        <p> (1) 사업장 확보 <br>
-             <span>* 사무실 확보의 세부항목은 '원하는 평수(예: 20평)'와 '월세'로 입력 (수량은 '1'로 고정)</span><br>
-             <span>* 평수에 따른 총 공사 비용 계산 : 원하는 평수×평당 비용</span>
-        </p>
-        <table>
-            <thead>
-                <tr>
-                    <th>평수(㎡)</th>
-                    <th>평당 비용</th>   
-                    <th>총 공사 비용</th>
-                    <th>월세</th>
-                    <th>추천 업종</th>
-                    <th>비고</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="center">20평 이하</td>
-                    <td class="align-right">30~50만원</td>
-                    <td class="align-right">600~1,000만원</td>
-                    <td class="align-right">80만원</td>
-                    <td>소형 카페, 테이크아웃 전문점, 1인 사무실, 소형 매장 등</td>
-                    <td>좁은 공간 활용한 고효율 창업</td>
-                </tr>
-                <tr>
-                    <td class="center">20~40평</td>
-                    <td class="align-right">40~60만원</td>
-                    <td class="align-right">800~2,400만원</td>
-                    <td class="align-right">80~160만원</td>
-                    <td>중형 카페, 음식점(한식, 분식), 소규모 학원, 개인 미용실, 네일샵 등</td>
-                    <td>대중적인 소비층 대상 업종 적합</td>
-                </tr>
-                <tr>
-                    <td class="center">40~60평</td>
-                    <td class="align-right">50~80만원</td>
-                    <td class="align-right">2,000~4,800만원</td>
-                    <td class="align-right">160~240만원</td>
-                    <td>레스토랑, 피트니스센터, 중형 학원, 실내 골프 연습장 등</td>
-                    <td>고정 고객 확보가능한 업종 적합</td>
-                </tr>
-                <tr>
-                    <td class="center">60~80평</td>
-                    <td class="align-right">60~90만원</td>
-                    <td class="align-right">3,600~7,200만원</td>
-                    <td class="align-right">240~320만원</td>
-                    <td>키즈카페, 요가 스튜디오, 중형 체육관, PC방, 서점 등</td>
-                    <td>넓은 공간과 특수 조명 또는 전기 설비 필요</td>
-                </tr>
-                <tr>
-                    <td class="center">80평 이상</td>
-                    <td class="align-right">80~100만원</td>
-                    <td class="align-right">6,400~1억원 이상</td>
-                    <td class="align-right">320~400만원</td>
-                    <td>대형 음식점, 게스트 하우스, 스터디카페, 공용오피스, 창고 임대 등</td>
-                    <td>넓은 공간과 대규모 고객 수용 적합</td>
-                </tr>
-            </tbody>
-        </table>
-        <p> (2) 인력 고용 : 3개월 유지 <br>
-            <span>* 월급 계산 : 시급×8시간×25일</span>
-        </p>
-        <table>
-            <thead>
-                <tr>
-                    <th>항목</th>
-                    <th>비용</th>
-                    <th>비고</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="center">채용 사이트 공고</td>
-                    <td class="align-right">50,000원</td>
-                    <td>1회 게시</td>
-                </tr>
-                <tr>
-                    <td class="center">인건비</td>
-                    <td class="align-right">2,096,270원</td>
-                    <td>2025년 최저시급 : 10,030원</td>
-                </tr>
-                <tr>
-                    <td class="center">기타</td>
-                    <td class="align-right">자율 책정</td>
-                    <td>1인당 4대보험료 20만원+a, 복지(점심 제공 등) 비용 포함</td>
-                </tr>
-            </tbody>
-        </table>
-        <p> (3) 마케팅 : 3개월 유지 <br>
-        </p>
-        <table>
-            <thead>
-                <tr>
-                    <th>구분</th>
-                    <th>항목</th>
-                    <th>비용</th>
-                    <th>비고</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="center" rowspan="3">오프라인</td>
-                    <td>SNS 광고</td>
-                    <td class="align-right">100,000원</td>
-                    <td>인스타그램, 페이스북</td>
-                </tr>
-                <tr>
-                    <td>검색 광고</td>
-                    <td class="align-right">300,000원</td>
-                    <td>구글, 네이버</td>
-                </tr>
-                <tr>
-                    <td>블로그 체험단</td>
-                    <td class="align-right">50,000원</td>
-                    <td>1건당</td>
-                </tr>
-                <tr>
-                    <td class="center" rowspan="3">온라인</td>
-                    <td>전단지 제작 및 배포</td>
-                    <td class="align-right">150,000원</td>
-                    <td>1,000부당</td>
-                </tr>
-                <tr>
-                    <td>오프닝 이벤트</td>
-                    <td class="align-right">500,000원</td>
-                    <td>상품 및 할인행사</td>
-                </tr>
-                <tr>
-                    <td>로드 광고</td>
-                    <td class="align-right">15,000원</td>
-                    <td>현수막, 배너</td>
-                </tr>
-            </tbody>
-        </table>
-        <p> (4) 시설 장비 구매 : 창업에 필요한 장비, 가구, 집기 등 가격 조사 후 직접 입력 <br></p>
-        <p> (5) 유지비 : (1)~(4) 항목을 제외한 나머지 비용 입력 <br>
-            <span>* 공과금, 소모품, 유지보수 및 업종에 따른 재료비 포함</span><br></p>
-
-    </div> <br>
-    <!-- 2. 창업비용 계획서 (가운데 정렬, 캡처 제외) -->
-    <div style="text-align: center; margin-bottom: 30px;">
-        <h2>창업항목 선택</h2>
+    <!-- 항목 선택 버튼 -->
+    <div style="text-align: center; margin-bottom: 30px;"></div>
+        <h2>창업비용 계획서 작성</h2><br><br>
     <table id="expense-table" style="margin: 0 auto;">
         <thead>
             <tr>
@@ -416,7 +432,7 @@
     </table>
 <br>
         <button class="add-button" onclick="addRow()"><b>항목 추가</b></button>
-    </div><br>
+    <br><br>
 
     <!-- 초기 자본 및 남은 금액 -->
     <div class="budget-container">
@@ -426,38 +442,31 @@
 
 
     <!-- 캡처할 영역 시작 -->
-    <div id="capture-area" style="padding: 20px; background-color: white; border-radius: 10px;">
+    <div id="capture-area" style="padding: 20px; border: 2px solid #F8D568; background-color: white; border-radius: 10px;">
 
         <!-- 캡처에 포함될 "창업비용 계획서" 타이틀 -->
-        <h1 style="text-align: center; margin-bottom: 20px;">창업비용 계획서</h1>
+        <h1 style="text-align: center; margin-bottom: 15px;">창업비용 계획서</h1>
 
         <!-- 기업명 및 학번 입력 (한 줄) -->
-        <table style="width: 100%; margin-bottom: 15px; border-collapse: collapse; text-align: center; table-layout: fixed;">
+        <table class="company-info-table">
             <tr>
-                <th style="background-color: #ffc107; padding: 3px; border: 1px solid #ffc107; width: 20%; font-size: 14px; line-height: 1.1; height: 25px;">
-                    기업명
-                </th>
-                <td style="border: 1px solid #ffc107; padding: 3px; width: 30%; height: 25px;">
-                    <input type="text" id="company-name" placeholder="예: (주)에이블" 
-                        style="width: 95%; height: 20px; padding: 2px; border: none; text-align: center; font-size: 14px;">
+                <th>기업명</th>
+                <td>
+                    <input type="text" id="company-name" placeholder="예: (주)에이블">
                 </td>
-                <th style="background-color: #ffc107; padding: 3px; border: 1px solid #ffc107; width: 20%; font-size: 14px; line-height: 1.1; height: 25px;">
-                    학번 및 이름
-                </th>
-                <td style="border: 1px solid #ffc107; padding: 3px; width: 30%; height: 25px;">
-                    <input type="text" id="student-name" placeholder="예: 300719 송다윤" 
-                        style="width: 95%; height: 20px; padding: 2px; border: none; text-align: center; font-size: 14px;">
+                <th>학번 및 이름</th>
+                <td>
+                    <input type="text" id="student-name" placeholder="예: 300719 송다윤, 380902 이영진">
                 </td>
             </tr>
-        </table>
-
+        </table><br>
 
         <div class="container" style="display: flex; justify-content: space-between; gap: 10px;">
 
             <!-- 왼쪽: 결과 -->
         <div style="width: 120%;">
             <div class="preview-container">
-                <h2>창업비용 계획서</h2>
+                <h2>창업비용 계획서</h2><br><br>
                 <table id="preview-table">
                     <thead>
                         <tr>
@@ -482,13 +491,27 @@
 
             <!-- 오른쪽: 4. 차트 -->
             <div class="chart-container" style="width: 45%;">
-                <h2>차트</h2>
+                <h2>차트</h2><br><br>
                 <canvas id="expenseChart"></canvas>
             </div>
-
         </div> <!-- container 끝 -->
+
+        <br>
+        <!-- 질문 표 (밑으로 이동) -->
+        <h2>창업 비용의 기준과 이유</h2>
+        <div style="margin-top: 20px; text-align: center;">
+            <table class="opinion-table" style="margin: 0 auto;">
+                <tr>
+                    <th style="width: 20%;">각 항목에 해당 금액을 배정한 기준과 이유는?</th>
+                </tr>
+                <tr>
+                    <td><textarea id="reasonIndustry" rows="5" class="long-input" placeholder="자유롭게 작성하세요"></textarea></td>
+                </tr>
+            </table>
+        </div>
     </div> <!-- capture-area 끝 -->
 
+    
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -522,7 +545,7 @@
                 <td><input type="text" class="detail-input" placeholder="세부 항목 입력"></td>
                 <td><input type="number" class="cost-input" placeholder="비용 입력"></td>
                 <td><input type="number" class="quantity-input" placeholder="수량 입력"></td>
-                <td class="total-cell">0 원</td>
+                <td class="total-cell align-right">0 원</td>
                 <td class="center"><button onclick="removeRow(this)">삭제</button></td>
             `;
             table.appendChild(newRow);
@@ -576,6 +599,7 @@
 
                 // 입력 테이블의 현재 행에 합계 업데이트
                 const totalCell = row.querySelector('.total-cell');
+                totalCell.classList.add("align-right");
                 totalCell.textContent = `${total.toLocaleString()} 원`;
             });
 
@@ -650,29 +674,167 @@
                 });
             });
 
-        function saveAsImage() {
-            const captureElement = document.getElementById('capture-area');
+            function saveAsImage() {
+                const captureElement = document.getElementById('capture-area');
 
-            html2canvas(captureElement, {
-                backgroundColor: '#ffffff', // 배경 흰색으로 설정
-                scale: 2, // 이미지 해상도 향상
-                useCORS: true // 외부 이미지 문제 방지
-            }).then(canvas => {
-                const link = document.createElement('a');
-                link.href = canvas.toDataURL("image/png");
-                link.download = "창업비용계획서.png";
-                link.click();
-            });
+                // 입력 필드 요소 가져오기
+                const companyInput = document.getElementById("company-name");
+                const studentInput = document.getElementById("student-name");
+
+                // 원래 placeholder 저장
+                const originalCompanyPlaceholder = companyInput.placeholder;
+                const originalStudentPlaceholder = studentInput.placeholder;
+
+                // 캡처 전 placeholder 비우기
+                companyInput.placeholder = "";
+                studentInput.placeholder = "";
+
+                html2canvas(captureElement, {
+                    backgroundColor: '#ffffff', // 배경 흰색 설정
+                    scale: 2, // 해상도 향상
+                    useCORS: true // 외부 이미지 문제 방지
+                }).then(canvas => {
+                    // 캡처 후 placeholder 원래대로 복원
+                    companyInput.placeholder = originalCompanyPlaceholder;
+                    studentInput.placeholder = originalStudentPlaceholder;
+
+                    // 이미지 저장
+                    const link = document.createElement('a');
+                    link.href = canvas.toDataURL("image/png");
+                    link.download = "창업비용계획서.png";
+                    link.click();
+                });
+            }
+
+    // 항목별 상세 설명 데이터
+    const detailsData = {
+        "사업장 확보": {
+            type: "table",
+            headers: ["평수", "총 공사 비용", "월세", "비고"],
+            rows: [
+                ["20평(66.12㎡) 이하", "600~1,000만원", "80만원", "좁은 공간 활용한 고효율 창업"],
+                ["20~40평(132.23㎡)", "800~2,400만원", "80~160만원", "대중적인 소비층 대상 업종 적합"],
+                ["40~60평(198.35㎡)", "2,000~4,800만원", "160~240만원", "고정 고객 확보가능한 업종 적합"],
+                ["60~80평(264.46㎡)", "3,600~7,200만원", "240~320만원", "넓은 공간과 특수 조명 또는 전기 설비 필요"],
+                ["80평(264.46㎡) 이상", "6,400~1억원 이상", "320~400만원", "넓은 공간과 대규모 고객 수용 적합"]
+            ],
+            text: "* 사무실 확보의 세부항목은 '원하는 평수(예: 20평)'와 '월세'로 입력 (수량은 '1'로 고정)."
+        },
+        "인력 고용": {
+            type: "table",
+            headers: ["항목", "비용", "비고"],
+            rows: [
+                ["채용 사이트 공고", "50,000원", "1회 게시"],
+                ["인건비", "2,096,270원", "2025년 최저시급 : 10,030원"],
+                ["기타", "자율 책정", "4대 보험료 및 복지 비용 포함"]
+            ],
+            text: "* 월급 계산 : 시급×8시간×25일"
+        },
+        "마케팅": {
+            type: "table",
+            headers: ["구분", "항목", "비용", "비고"],
+            rows: [
+                ["오프라인", "SNS 광고", "100,000원", "인스타그램, 페이스북"],
+                ["오프라인", "검색 광고", "300,000원", "구글, 네이버"],
+                ["오프라인", "블로그 체험단", "50,000원", "1건당"],
+                ["온라인", "전단지 제작", "150,000원", "1,000부당"],
+                ["온라인", "오프닝 이벤트", "500,000원", "상품 및 할인행사"],
+                ["온라인", "로드 광고", "15,000원", "현수막, 배너"]
+            ],
+            text: "* 창업 초기 홍보 및 고객 유치를 위한 다양한 마케팅 기법 활용"
+        },
+        "시설 장비 구매": {
+            type: "text",
+            text: "창업에 필요한 장비, 가구, 집기 등을 조사하여 직접 입력해야 합니다."
+        },
+        "유지비": {
+            type: "text",
+            text: "공과금, 소모품, 유지보수 및 업종에 따른 재료비가 포함됩니다."
         }
+    };
+
+    function showDetails(category) {
+    const container = document.getElementById("details-container");
+    const table = document.getElementById("details-table");
+    const tableHeader = document.getElementById("table-header");
+    const tableBody = document.querySelector("#details-table tbody");
+    const detailsText = document.getElementById("details-text");
+    const title = document.getElementById("details-title");
+
+    // 타이틀 변경
+    title.textContent = `${category}`;
+
+    // 기존 데이터 초기화
+    tableHeader.innerHTML = "";
+    tableBody.innerHTML = "";
+    detailsText.style.display = "none";
+    table.style.display = "none";
+
+    if (detailsData[category].type === "table") {
+        table.style.display = "table";
+
+        // 테이블 헤더 생성
+        detailsData[category].headers.forEach((header, index) => {
+            const th = document.createElement("th");
+            th.textContent = header;
+            tableHeader.appendChild(th);
+        });
+
+        // 테이블 본문 생성
+        detailsData[category].rows.forEach(rowData => {
+            const row = document.createElement("tr");
+            rowData.forEach((cellData, index) => {
+                const td = document.createElement("td");
+                td.textContent = cellData;
+
+                // 비용 항목만 오른쪽 정렬
+                if (category === "사업장 확보" && (index === 1 || index === 2)) {
+                    td.classList.add("align-right");
+                }
+                if ((category === "인력 고용" || category === "마케팅") && index === 1) {
+                    td.classList.add("align-right");
+                }
+
+                row.appendChild(td);
+            });
+            tableBody.appendChild(row);
+        });
+
+        // 추가 설명 표시
+        detailsText.textContent = detailsData[category].text;
+        detailsText.style.display = "block";
+    } else {
+        // 텍스트 설명만 표시
+        detailsText.textContent = detailsData[category].text;
+        detailsText.style.display = "block";
+    }
+
+    container.style.display = "block";
+}
 
 
+    function closeDetails() {
+        const container = document.getElementById("details-container");
+        const tableBody = document.querySelector("#details-table tbody");
+        const detailsText = document.getElementById("details-text");
+        const table = document.getElementById("details-table");
+
+        // 모든 데이터 삭제
+        tableBody.innerHTML = "";
+        detailsText.innerHTML = "";
+        table.style.display = "none";
+        detailsText.style.display = "none";
+
+        // 표 숨김
+        container.style.display = "none";
+    }
     </script>
 
         <div style="text-align: center; margin-top: 20px;">
             <button class="add-button" onclick="saveAsImage()">이미지 저장</button>
-        </div>
+        </div><br>
 
 
-
-</body>
+    </div>
+    </body>
 </html>
